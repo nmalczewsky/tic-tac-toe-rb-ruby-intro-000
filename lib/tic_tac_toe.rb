@@ -48,6 +48,8 @@ def turn(board)
   if valid_move?(board, position)
     move(board, position, token)
     display_board(board)
+  else
+    turn(board)
   end
 end
 
