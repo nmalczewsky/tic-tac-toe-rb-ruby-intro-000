@@ -58,6 +58,14 @@ def turn_count(board)
   return turns.length
 end
 
+def current_player(board)
+  if turn_count.odd?
+    return "X"
+  else
+    return "O"
+  end
+end
+
 def won?(board)
   WIN_COMBINATIONS.detect do |win_combination|
     win_combination.all?{|win_index| board[win_index] == "X"} || win_combination.all?{|win_index| board[win_index] == "O"}
