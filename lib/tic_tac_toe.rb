@@ -42,7 +42,8 @@ def valid_move? (board, position)
 end
 
 def turn(board)
-  #puts "Please enter 1-9:"
+  puts "Please enter 1-9:"
+  token = "X"
   position = input_to_index(gets)
   if valid_move?(board, position)
     move(board, position, token)
