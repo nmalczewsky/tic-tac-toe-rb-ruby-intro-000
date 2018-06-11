@@ -52,3 +52,37 @@ def turn(board)
     turn(board)
   end
 end
+
+def turn_count(board)
+  turns = board.select{|token| token == "X" || token == "O"}
+  return turns.length
+end
+
+def won?(board)
+  WIN_COMBINATIONS.detect do |win_combination|
+    win_combination.all?{|win_index| board[win_index] == "X"} || win_combination.all?{|win_index| board[win_index] == "O"}
+  end
+end
+
+def full?(board)
+  board.all?{|position| position == "X" || position == "O"}
+end
+
+def draw?(board)
+  if full?(board) && !won?(board)
+    return true
+  elsif (!full?(board) && !won?(board)) || won?(board)
+    return false
+  end
+end
+
+def over?(board)
+  won?(board) || draw?(board) || full?(board)
+end
+
+def winner(board)
+  if won?(board).kind_of?(Array)
+    winning_array = won?(board).first
+    board[winning_array]
+  end
+end
