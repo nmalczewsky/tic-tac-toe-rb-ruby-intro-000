@@ -73,7 +73,7 @@ def won?(board)
 end
 
 def full?(board)
-  board.all?{|position| position == "X" || position == "O"}
+  turn_count(board) >= 9
 end
 
 def draw?(board)
