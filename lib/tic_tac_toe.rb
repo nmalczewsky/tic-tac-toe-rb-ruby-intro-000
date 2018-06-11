@@ -96,4 +96,7 @@ def winner(board)
 end
 
 def play
+  until over?(board)
+    turn(board)
+  end
 end
