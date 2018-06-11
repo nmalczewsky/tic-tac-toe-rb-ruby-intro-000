@@ -94,3 +94,6 @@ def winner(board)
     board[winning_array]
   end
 end
+
+def play
+end
